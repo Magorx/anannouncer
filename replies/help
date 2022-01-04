@@ -1,0 +1,9 @@
+My primer goal is to deliver a message you create with a special CODE to a person that will enter this CODE. Basicly, that's all for now.
+
+/msg_create CODE - init creation of the message with given CODE
+/msg_text CODE "text" - sets text of the message to given
+/msg_sign CODE - sing a message so that the reciever will know the creator by his @login
+/msd_date CODE - put current date to message
+/msg_seal CODE - prevents a message from future 
+
+/recieve CODE - look for a message with given CODE
