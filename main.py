@@ -7,6 +7,7 @@ from random import randint, choice, shuffle
 from time import time, sleep
 import logging
 import message as Msg
+import datetime
 
 import bot_replies as REPLY
 
@@ -54,11 +55,15 @@ def msg_create(update: Update, context: CallbackContext):
         context.bot.send_message(chat_id=update.effective_chat.id, text=REPLY.msg_create_err_one_arg)
         return
     
+    now = datetime.datetime.now()
+    time = now.time().strftime("%H:%M:%S")
+    date = now.date().strftime("%d-%m-%Y")
+    
     code = context.args[0]
-    msg = Msg.Message(code, time(), update.effective_user.name)
+    msg = Msg.Message(code, time=time, date=date, creator=update.effective_user.name)
     MSGDB.add_msg(msg)
 
-    reply = '{}\nCode: {}\nCreator: {}'.format(REPLY.msg_create_done, code, msg.info.user)
+    reply = '{}\nCode: {}\nCreator: {}\nTime: {}\nDate: {}'.format(REPLY.msg_create_done, code, msg.info.user, time, date)
 
     context.bot.send_message(chat_id=update.effective_chat.id, text=reply)
 

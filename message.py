@@ -9,16 +9,17 @@ from time import sleep
 
 
 class CreationInfo:
-    def __init__(self, time, user):
+    def __init__(self, time, date, user):
         self.time = time
+        self.date = date
         self.user = user
 
 
 class Message:
-    def __init__(self, code='', time=None, creator=None):
+    def __init__(self, code='', time=None, date=None, creator=None):
         self.code = code
         self.text = ""
-        self.info = CreationInfo(time, creator)
+        self.info = CreationInfo(time, date, creator)
 
 
     def save(self, filename=None):
