@@ -4,6 +4,7 @@
 
 start = open("replies/start").read()
 help_recieve = open("replies/recieve").read()
+help_msg = open("replies/help_msg").read()
 help = open("replies/help").read()
 
 msg_cant_be_changed = open("replies/msg_cant_be_changed").read()

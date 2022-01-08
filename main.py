@@ -56,6 +56,10 @@ def help_recieve(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id, text=REPLY.help_recieve)
 
 
+def help_msg(update: Update, context: CallbackContext):
+    context.bot.send_message(chat_id=update.effective_chat.id, text=REPLY.help_msg)
+
+
 def caps(update: Update, context: CallbackContext):
     text_caps = ' '.join(context.args).upper()
     context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
@@ -176,10 +180,10 @@ def show_message(update: Update, context: CallbackContext, msg: Msg.Message):
             reply = reply + '\n-----\n'
         date, time = get_date_time()
         username = update.effective_user.name
-        reply = reply + "Unsealed by {} on {}, time: {}".format(username, date, time)
+        reply = reply + "_Unsealed by {} on {}, time: {}_".format(username, date, time)
     
     if len(reply):
-        update.effective_user.send_message(reply)
+        update.effective_user.send_message(reply, parse_mode=telegram.ParseMode.MARKDOWN)
 
 
 def recieve(update: Update, context: CallbackContext):
@@ -210,6 +214,7 @@ handlers = {
     'start' : start,
     'help'  : help,
     'help_recieve' : help_recieve,
+    'help_msg' : help_msg,
     'recieve' : recieve,
     'unseal' : unseal,
     'msg_create' : msg_create,
@@ -221,6 +226,13 @@ handlers = {
 for handler in handlers:
     hldr = CommandHandler(handler, handlers[handler])
     dispatcher.add_handler(hldr)
+
+
+def unknown(update: Update, context: CallbackContext):
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Oops! Unknown command, try /help")
+
+unknown_handler = MessageHandler(Filters.command, unknown)
+dispatcher.add_handler(unknown_handler)
 
 
 updater.start_polling()
