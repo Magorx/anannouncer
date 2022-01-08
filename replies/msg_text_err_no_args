@@ -1,6 +1,0 @@
-To set a text write "/msg_text CODE ..." without quotes, where "..." is your text. Note, there should be a SPACE (not new line) between the CODE and the text.
-Example:
-
-/msg_text Jabella_secrets Hey, Kirkwin!
-You found my secrets!
-Congratulations!

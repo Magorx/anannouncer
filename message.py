@@ -15,11 +15,24 @@ class CreationInfo:
         self.user = user
 
 
+class RecieveInfo:
+    def __init__(self):
+        self.timestamp = False
+        self.seal = False
+
+
 class Message:
-    def __init__(self, code='', time=None, date=None, creator=None):
+    def __init__(self, code='', time=None, date=None, creator=None, creator_chat_id=None):
         self.code = code
         self.text = ""
         self.info = CreationInfo(time, date, creator)
+        self.recieve_info = RecieveInfo()
+
+        self.creator_chat_id = creator_chat_id
+    
+
+    def is_changeable(self) -> bool:
+        return not self.recieve_info.seal
 
 
     def save(self, filename=None):

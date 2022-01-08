@@ -1,0 +1,11 @@
+To set an option for a message, write "/msg_[option] CODE ..." without quotes, where "..." is a new option value
+For example:
+
+/msg_text Jabella_secrets
+Hey, Kirkwin!
+You found my secrets!
+Congratulations!
+
+If the option requires no value, just write something like:
+
+/msg_date CODE
