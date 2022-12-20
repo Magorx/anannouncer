@@ -261,6 +261,10 @@ def stream_send(update: Update, context: CallbackContext):
         context.bot.send_message(chat_id=update.effective_chat.id, text="Oops, no such stream.")
         return
     
+    if not update.message.text:
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Oops, no message text.")
+        return
+    
     text = update.message.text.split(' ')[1:]
     if text[0].count('\n') > 0:
         text[0] = '\n'.join(text[0].split('\n')[1:])
