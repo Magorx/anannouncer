@@ -3,7 +3,7 @@
 
 
 start = open("replies/start").read()
-help_recieve = open("replies/recieve").read()
+help_receive = open("replies/receive").read()
 help_msg = open("replies/help_msg").read()
 help = open("replies/help").read()
 
@@ -20,6 +20,6 @@ msg_is_not_sealed = open("replies/msg_is_not_sealed").read()
 
 msg_text_err_no_such_code = open("replies/msg_text_err_no_such_code").read()
 
-recieve_err_one_arg = open("replies/recieve_err_one_arg").read()
+receive_err_one_arg = open("replies/receive_err_one_arg").read()
 
 success = open("replies/success").read()

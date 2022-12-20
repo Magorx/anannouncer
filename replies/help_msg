@@ -1,4 +1,4 @@
 /msg_create CODE - init creation of the message with given CODE
 /msg_text CODE ... - sets text of the message to given. Using many lines in text is allowed!
-/msd_date CODE - put/unput creation date as a part of the message
-/msg_seal CODE - prevents a message from future changes. Also, the message after this command can be recieved only once and will be destroyed afterwards. But! You will get notification, when someone finally reads it. Use carefully
+/msd_date CODE - insert/remove creation date as a part of the message
+/msg_seal CODE - prevents a message from future changes. Also, the message after this command can be received only once and will be destroyed afterwards. But! You will get notification, when someone finally reads it. Use carefully
